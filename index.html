@@ -1,23 +1,218 @@
----
-layout: default
----
-
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Physics</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Justin Battaglia">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+        <link rel="icon" href="">
+    </head>
+    <style>
+        * {
+            font-family: muli;
+        }
+        
+        html {
+            background-image: url(woodBg.jpg);
+            overflow-x: hidden;
+        }
+        
+        .frame {
+            border: orange solid 10px;
+            padding: 2% 5%;
+            color:coral;
+            width: 25%;
+            height:150%;
+            border-radius: 3px;
+            margin: 3%;
+            background-color: white;
+        }
+        
+        .frameItems input{
+            border: orange solid 2px;
+            padding: 8px;
+            color: coral;
+        }
+        
+        .mainBtn {
+            background-color: white;
+            border: orange solid 2px;
+            padding: 20px;
+            width: 100%;
+            color: coral;
+            transition: all 1s;
+        }
+        
+        .mainBtn:hover {
+            background-color: orange;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .mainBtn:focus {
+            outline:none;
+        }
+        
+        #demo, #demo2, #demo3, #demo4 {
+            animation-name: answerInelastic;
+            animation-iteration-count: 3;
+            animation-duration: 2s;
+        }
+        
+        @keyframes answerInelastic {
+            0%{opacity: 0;}
+            100%{opacity: 1;}
+        }
+        
+        .flexItems {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .mainHeader {
+            color: white;
+            font-size: 3em;
+            background-color: orange;
+            text-align: center;
+            margin: -1%;
+            padding: 10px;
+            border: solid white 2px;
+        }
+    </style>
+    <body>
+        <h1 class="mainHeader">Physics Workshop</h1>
+        <div class=flexItems>
+            <div class="frame">
+                <h1>Balistic Pendulum</h1>
+                <p class="frameItems">
+                    Enter your gravity:<br>
+                    <input type="text" id="gravity" name="gravity" value="9.80065"><br><br>
+                    Enter the mass of your projectile in Kg:<br>
+                    <input type="text" id="bulletMass" name="bulletMass"><br><br>
+                    Enter the block's mass in Kg:<br>
+                    <input type="text" id="blockMass" name="blockMass"><br><br>
+                    Enter the length of the string in meters:<br>
+                    <input type="text" id="stringLength" name="stringLength"><br><br>
+                    Enter the maximum angle:<br>
+                    <input type="text" id="maxAngle" name="maxAngle"><br><br>
+                </p>
+                <p>
+                    <button class="mainBtn" onclick="balistic()">Get Final Velocity</button>
+                </p>
+                <h3>Answer: </h3><p id="demo2">&rang;&rang;&rang;</p>
+            </div>
+            <div class="frame">
+                <h1>Inelastic Collision</h1>
+                <p class="frameItems">
+                    Enter your first mass:<br>
+                    <input type="text" id="massOne" name="massOne"><br><br>
+                    Enter your first velocity:<br>
+                    <input type="text" id="velocityOne" name="velocityOne"><br><br>
+                    Enter your second mass:<br>
+                    <input type="text" id="massTwo" name="massTwo"><br><br>
+                    Enter your second velocity:<br>
+                    <input type="text" id="velocityTwo" name="velocityTwo"><br><br>
+                </p>
+                <p>
+                    <button class="mainBtn" onclick="inelastic()">Get Final Velocity</button>
+                </p>
+                <h3>Answer: </h3><p id="demo">&rang;&rang;&rang;</p>
+            </div>
+            <div class="frame">
+                <h1>Physics Ramps: Acceleration</h1>
+                <p class="frameItems">
+                    Enter the degree of incline on your ramp:<br>
+                    <input type="text" id="inclineAngle" name="inclineAngle"><br><br>
+                    Enter the coefficient  of friction:<br>
+                    <input type="text" id="friction" name="friction"><br><br>
+                </p>
+                <p>
+                    <button class="mainBtn" onclick="rampA()">Get Final Velocity</button>
+                </p>
+                <h3>Answer: </h3><p id="demo3">&rang;&rang;&rang;</p>
+            </div>
+            <div class="frame">
+                <h1>Physics Ramps: Coefficient  of Friction</h1>
+                <p class="frameItems">
+                    Enter the degree of incline on your ramp:<br>
+                    <input type="text" id="inclineAngle2" name="inclineAngle2"><br><br>
+                    Enter the force of weight, of your object(F<sub>w</sub> = mg):<br>
+                    <input type="text" id="Fw" name="Fw"><br><br>
+                    Enter the acceleration:<br>
+                    <input type="text" id="acceleration2" name="acceleration2"><br><br>
+                </p>
+                <h4>*Try changing the Force of weigth (F<sub>w</sub>)</h4>
+                <p>
+                    <button class="mainBtn" onclick="rampB()">Get Final Velocity</button>
+                </p>
+                <h3>Answer: </h3><p id="demo4">&rang;&rang;&rang;</p>
+            </div>
+        </div>
+        <script>
+            function isInteger(x) {
+                return typeof(x);
+            }
+            (function (R) {
+                  Math.cosd = function(d) { return Math.cos(d * R); };
+                  Math.sind = function(d) { return Math.sin(d * R); };
+                  Math.tand = function(d) { return Math.tan(d * R); };
+                })(Math.PI / 180);
+            function inelastic() {
+                var massOne = Number(document.getElementById("massOne").value);
+                var velocityOne = Number(document.getElementById("velocityOne").value);
+                var massTwo = Number(document.getElementById("massTwo").value);
+                var velocityTwo = Number(document.getElementById("velocityTwo").value);
+                var initial = (massOne*velocityOne) + (massTwo*velocityTwo);
+                var massSystem = +massOne + +massTwo
+                var finalVelocity = initial/massSystem
+                document.getElementById("demo").innerHTML = "The final velocity of this object is " + finalVelocity + " m/s<sup>2</sup>";
+            }
+            
+            function balistic() {
+                var gravity = Number(document.getElementById("gravity").value);
+                var bulletMass = Number(document.getElementById("bulletMass").value);
+                var blockMass = Number(document.getElementById("blockMass").value);
+                var stringLength = Number(document.getElementById("stringLength").value);
+                var maxAngle = Number(document.getElementById("maxAngle").value);
+                var height1 = (Math.cosd(maxAngle)*stringLength);
+                var height = (stringLength - height1);
+                console.log(height)
+                var velocity = (2*gravity*height);
+                console.log(velocity)
+                var velocityFinal = Math.sqrt(velocity);
+                console.log(velocityFinal)
+                var systemMass = +bulletMass + +blockMass;
+                console.log(systemMass)
+                var final = (systemMass*velocityFinal)
+                console.log(final)
+                var final2 = final / bulletMass
+                console.log(final2)
+                document.getElementById("demo2").innerHTML = "The final velocity of this object is " + final2 + " m/s<sup>2</sup>";
+            }
+            
+            function rampA() {
+                var inclineAngle = Number(document.getElementById("inclineAngle").value);
+                var friction = Number(document.getElementById("friction").value);
+                var gravity = 9.80065
+                var acceleration = gravity*(Math.sind(inclineAngle)) - ((friction*gravity)*(Math.cosd(inclineAngle)))
+                document.getElementById("demo3").innerHTML = "The final velocity of this object is " + acceleration + " m/s<sup>2</sup>";
+            }
+            
+            function rampB() {
+                var inclineAngle2 = Number(document.getElementById("inclineAngle2").value);
+                var acceleration2 = Number(document.getElementById("acceleration2").value);
+                var Fw = Number(document.getElementById("Fw").value);
+                var Fa = (Fw*(Math.sind(inclineAngle2)))
+                var Fn = (Fw*(Math.cosd(inclineAngle2)))
+                var F = (Fw/9.80065)*acceleration2
+                var Ff = -1*(F-Fa)
+                var mu = Ff/Fn
+                document.getElementById("demo4").innerHTML = "The coefficient of friction is " + mu + "&mu;";
+            }
+        </script>
+    </body>
+</html>
