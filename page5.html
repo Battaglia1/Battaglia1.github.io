@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Birthday Adventure</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" type="image/png" href="birthday.png"/>
+    <style>
+        #background {
+            width: 100%; 
+            height: 100%; 
+            position: fixed; 
+            left: 0px; 
+            top: 0px; 
+            z-index: -1;
+        }
+
+        .stretch {
+            width:100%;
+            height:115%;
+        }
+    </style>
+</head>
+    <body>
+    <div id="big-text">
+             Page 5, You did it!!
+    </div>
+    <div id="main-container">
+        <p id="main-text">
+            Ya I literally cannot wait for prom, like I am soooo excited. We are going to have so much fun with eachother. <br>Ok now I don't know if you remember this image, but I sent it to you a long time ago and you loved it :) and said how you thought it was so cute and sweet that I would send you photos of the sunset. I remember that was the moment when I was like, wow I really like this girl. So in honor of that guess the name of the school that I'm at in that photo. The school name is just the name of the city. Look at the image closely. Research if you have to lololol. 
+        </p>
+    </div>
+    <input id="password-bar" placeholder="click here and type in your guess"/>    
+    <button id="submit" onclick="submit()">Submit Answer</button>
+    <button id="submit2" onclick="newDoc('page6.html')"></button>
+    <div id="background">
+        <img src="img4.jpg" class="stretch" alt="" />
+    </div>
+    <script>
+        function newDoc(theLocation) {
+            window.location.assign(theLocation);
+        }
+
+        function submit() {
+            var password = document.getElementById("password-bar");
+            var submit = document.getElementById("submit");
+            var submit2 = document.getElementById("submit2");
+
+            console.log(password.value)
+            if (password.value.toLowerCase() === "branson" || password.value.toLowerCase() === "branson highschool" || password.value.toLowerCase() === "branson high school" || password.value.toLowerCase() === "branson high") {
+                submit.style.display = "none";
+                submit2.style.display = "block";
+
+                submit2.innerHTML = "Correct :)   Click Again!!";
+            } else {
+                submit.style.color = "white";
+                submit.style.backgroundColor = "#FF3109";
+                submit.style.display = "none";
+                submit.style.display = "block";
+                submit.style.animation = 'none';
+                submit.offsetHeight; /* trigger reflow */
+                submit.style.animation = null; 
+                submit.innerHTML = "Incorrect";
+            }
+        }    
+    </script>
+    </body>
+</html>

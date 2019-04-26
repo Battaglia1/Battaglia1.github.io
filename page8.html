@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Birthday Adventure</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" type="image/png" href="birthday.png"/>
+    <style>
+        html {
+            background-color: white;
+            overflow-y: auto;
+        }
+        
+        #big-text {
+            font-size: 15em;
+            color: white;
+        }
+        
+        #big-text div:nth-child(1n) {
+            color: red;
+        }
+        
+        #big-text div:nth-child(2n) {
+            color: orange;
+        }
+        
+        #big-text div:nth-child(3n) {
+            color: yellow;
+        }
+        
+        #big-text div:nth-child(4n) {
+            color: green;
+        }
+        
+        #big-text div:nth-child(5n) {
+            color: blue;
+        }
+        #big-text div:nth-child(6n) {
+            color: purple;
+        }
+        #big-text div {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        #background {
+            width: 100%; 
+            height: 100%; 
+            position: fixed; 
+            left: 0px; 
+            top: 0px; 
+            z-index: -1;
+        }
+
+        .stretch {
+            width:100%;
+            height:115%;
+        }
+    </style>
+</head>
+    <body>
+    <div id="big-text">
+           <div>
+            <div>A</div><div>N</div><div>N</div><div>I</div><div>E</div>
+           </div>
+           <div>
+               <div>:</div><div>)</div><div>:</div><div>)</div><div>:</div><div>)</div><div>:</div><div>)</div>
+           </div>
+    </div><br><br><br><br><br><br><br><br><br>
+    <div id="main-container">
+        <p id="main-text">
+            Well Annie I really hope you found this fun. Not even joking a wanted to make this way better looking and way better in general, but I actually did not have enough time, like I devoted a lot of time to it, but I still didn't have enough time. I'm sorry, but I hope you know that you're the best and I hope you are having the best birthday ever. I hope this was like super fun and super enjoyable. Thank you so much for being such a great friend. I'm so blessed to have you in my life and am so happy that we have been able to get to know eachother. Thank you so much for being you, you're the best. Have a great rest of your day!!!
+            <br>
+            <br>
+            Also scroll down a little :)
+        </p>
+    </div><br><br><br><br><br><br>
+    <img style="display: block; margin: 0 auto; width: 50%; height: 50%;" src="img8.JPG" alt="">
+    <div id="background">
+        <img src="img7.jpg" class="stretch" alt="" />
+    </div>
+    </body>
+</html>

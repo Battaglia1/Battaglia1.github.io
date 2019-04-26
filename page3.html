@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Birthday Adventure</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" type="image/png" href="birthday.png"/>
+    <style>
+        html {
+            padding: 0;
+            margin: 0;
+        }
+        
+        #background {
+            width: 100%; 
+            height: 100%; 
+            position: fixed; 
+            left: 0px; 
+            top: 0px; 
+            z-index: -1;
+        }
+
+        .stretch {
+            width:100%;
+            height:100%;
+        }
+    </style>
+</head>
+    <body>
+    <div id="big-text">
+             Page 3, You did it!!
+    </div>
+    <div id="main-container">
+        <p id="main-text">
+            Ya I think that one was pretty easy, and also I just love this photo that you took so I made it the background!! It's super pretty (like you). Ok though this next one I'm gonna try to make pretty hard, lol I'm not sure if you're going to to remember this one. But ya know how we have a list right?? Well I actually have a legit list and have all the stuff written down. So let's see if you can guess the first item I put on the list!!
+        </p>
+    </div>
+    <input id="password-bar" placeholder="click here and type in your guess"/>    
+    <button id="submit" onclick="submit()">Submit Answer</button>
+    <button id="submit2" onclick="newDoc('page4.html')"></button>
+    <div id="background">
+        <img src="img3.jpg" class="stretch" alt="" />
+    </div>
+    <script>
+        function newDoc(theLocation) {
+            window.location.assign(theLocation);
+        }
+
+        function submit() {
+            var password = document.getElementById("password-bar");
+            var submit = document.getElementById("submit");
+            var submit2 = document.getElementById("submit2");
+
+            console.log(password.value)
+            if (password.value.toLowerCase() === "make gingerbread house" || password.value.toLowerCase() === "make gingerbread houses" || password.value.toLowerCase() === "making gingerbread house" || password.value.toLowerCase() === "making gingerbread houses" || password.value.toLowerCase() === "gingerbread house" || password.value.toLowerCase() === "gingerbread" || password.value.toLowerCase() === "make gingerbread houses together" || password.value.toLowerCase() === "making gingerbread houses together") {
+                submit.style.display = "none";
+                submit2.style.display = "block";
+
+                submit2.innerHTML = "Correct :)   Click Again!!";
+            } else {
+                submit.style.color = "white";
+                submit.style.backgroundColor = "#FF3109";
+                submit.style.display = "none";
+                submit.style.display = "block";
+                submit.style.animation = 'none';
+                submit.offsetHeight; /* trigger reflow */
+                submit.style.animation = null; 
+                submit.innerHTML = "Incorrect";
+            }
+        }    
+    </script>
+    </body>
+</html>

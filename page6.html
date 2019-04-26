@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Birthday Adventure</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" type="image/png" href="birthday.png"/>
+    <style>
+        #background {
+            width: 100%; 
+            height: 100%; 
+            position: fixed; 
+            left: 0px; 
+            top: 0px; 
+            z-index: -1;
+        }
+
+        .stretch {
+            width:100%;
+            height:115%;
+        }
+    </style>
+</head>
+    <body>
+    <div id="big-text">
+             Page 6, You did it!!
+    </div>
+    <div id="main-container">
+        <p id="main-text">
+            Ok that's pretty impressive if you figured that one out without asking me or anything. Now this one is going to be a fun one, I have a lot of words to describe you because you're the best. So guess them, just type in one, and if you want to try others you can just refresh the page and type in a different word and see if it turns greens. And if you guess one that isn't correct, just know it's so true I just forgot to add it. I mean I wouldn't have enough room to put every word I have to describe you on here :)))
+        </p>
+    </div>
+    <input id="password-bar" placeholder="click here and type in your guess"/>    
+    <button id="submit" onclick="submit()">Submit Answer</button>
+    <button id="submit2" onclick="newDoc('page7.html')"></button>
+    <div id="background">
+        <img src="img5.jpeg" class="stretch" alt="" />
+    </div>
+    <script>
+        function newDoc(theLocation) {
+            window.location.assign(theLocation);
+        }
+
+        function submit() {
+            var password = document.getElementById("password-bar");
+            var submit = document.getElementById("submit");
+            var submit2 = document.getElementById("submit2");
+
+            console.log(password.value)
+            if (password.value.toLowerCase() === "amazing" || password.value.toLowerCase() === "funny" || password.value.toLowerCase() === "beautiful" || password.value.toLowerCase() === "stunning" || password.value.toLowerCase() === "cute" || password.value.toLowerCase() === "adorable" || password.value.toLowerCase() === "kind" || password.value.toLowerCase() === "sweet" || password.value.toLowerCase() === "lovely" || password.value.toLowerCase() === "my girl" || password.value.toLowerCase() === "smart" || password.value.toLowerCase() === "gorgeous" || password.value.toLowerCase() === "loving" || password.value.toLowerCase() === "caring" || password.value.toLowerCase() === "godly") {
+                submit.style.display = "none";
+                submit2.style.display = "block";
+
+                submit2.innerHTML = "Correct :)   Click Again!!";
+            } else {
+                submit.style.color = "white";
+                submit.style.backgroundColor = "#FF3109";
+                submit.style.display = "none";
+                submit.style.display = "block";
+                submit.style.animation = 'none';
+                submit.offsetHeight; /* trigger reflow */
+                submit.style.animation = null; 
+                submit.innerHTML = "Incorrect";
+            }
+        }    
+    </script>
+    </body>
+</html>
