@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Parisienne');
+@import url('https://fonts.googleapis.com/css?family=Reenie+Beanie');
+/*
+    font-family: 'Raleway', sans-serif;
+
+*/
+* {
+    font-family: 'Reenie Beanie', cursive;
+    overflow: hidden;
+    user-select: none;
+}
+
+html {
+    background-color: #FFEB09;
+}
+
+@media only screen and (max-width: 1400px) {
+  div#main-container p#main-text{
+    font-size: 1.5em;
+  }
+}
+
+#main-container {
+    background-color: #f6f6f6;
+    -webkit-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 1px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 1%; 
+    border-radius: 3px;
+}
+
+#big-text {    
+    color: white;
+    font-size: 7em;
+    text-align: center;
+    text-shadow: 2.5px 2.5px 0px rgba(0,0,0,0.2);
+}
+
+#main-text {
+    font-family: 'Reenie Beanie', cursive;
+    color: #737373;
+    font-size: 2em;
+    text-align: center;
+}
+
+#password-bar {
+    position: fixed;
+    top: 65%;
+    left: 20%;
+    background-color: #f6f6f6;
+    -webkit-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    height: 60px;
+    width: 60%;
+    text-align: center;
+    border: none;
+    user-select: none;
+    outline: none;
+    border-radius: 5px;
+    font-family: 'Raleway', sans-serif;
+    color: #737373;
+    font-size: 1.7em;
+}
+
+#submit {
+    position: fixed;
+    top: 80%;
+    left: 37%; 
+    border: none;
+    background-color: #FFFFFF;
+    color: #737373;
+    font-family: 'Raleway', sans-serif;
+    padding: 10px;
+    border-radius: 30px;
+    width: 25%;
+    transition: 1s all;
+    border: 1px white solid;
+    font-size: 1.6em;
+    outline: none;
+    animation-play-state: running;
+    animation-name: submitAnimation;
+    animation-duration: .8s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes submitAnimation {
+    0%   {transform: translateX(-5px);}
+    10%  {transform: translateX(-10px);}
+    25%  {transform: translateX(10px);}
+    50%  {transform: translateX(-5px);}
+    75%  {transform: translateX(5px);}
+    90%  {transform: translateX(-3px);}
+    100% {transform: translateX(-2px);}
+}
+
+#submit:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.2);
+}
+
+#submit2 {
+    position: fixed;
+    top: 80%;
+    left: 37%; 
+    border: none;
+    background-color: #FFFFFF;
+    color: #737373;
+    font-family: 'Raleway', sans-serif;
+    padding: 10px;
+    border-radius: 30px;
+    width: 25%;
+    border: 1px white solid;
+    font-size: 1.7em;
+    outline: none;
+    display: none;
+    animation-name: submitAnimation2;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    transition: 1s all;
+}
+
+@keyframes submitAnimation2 {
+    0%   {background-color: #FFFFFF;color: #737373;}
+
+    100% {background-color: #00C509;color: #FFFFFF;}
+}
+
+#submit2:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.2);
+}
